@@ -1,2 +1,22 @@
-KERNEL=="ttyUSB[0-9]", MODE="0666"
-KERNEL=="ttyACM[0-9]", MODE="0666"
+# udev rules for 3D printers, CNCs, laser cutters, 3D scanners, etc.
+
+# Minitronic, Megatronic, Sanguinololu, Melzi (RepRap i2/i3, Rebelix, Velleman K8200)
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="0403", ATTRS{idProduct}=="6001", ENV{ID_MAKER_TOOL}="1"
+
+# MakerBot Replicator Z18
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="23c1", ATTRS{idProduct}=="0006", ENV{ID_MAKER_TOOL}="1"
+
+# MakerBot Replicator 2X
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="23c1", ATTRS{idProduct}=="b017", ENV{ID_MAKER_TOOL}="1"
+
+# Arduino Mega with RAMPS, Arduino UNO* (Ultimaker Original, Ciclop scanner)
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="2341", ATTRS{idProduct}=="0042", ENV{ID_MAKER_TOOL}="1"
+
+# RAMBO (Lulzbot Mini, Lulzbot TAZ 4)
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="27b1", ATTRS{idProduct}=="0001", ENV{ID_MAKER_TOOL}="1"
+
+
+# The following rule can be removed once the systemd upstream support will get
+# widely adopted (IMHO it should be safe to remove in 2017+)
+# https://github.com/systemd/systemd/pull/2844
+ENV{ID_MAKER_TOOL}=="?*", TAG+="uaccess"
