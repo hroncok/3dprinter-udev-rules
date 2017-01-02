@@ -15,6 +15,8 @@ SUBSYSTEMS=="usb", ATTRS{idVendor}=="2341", ATTRS{idProduct}=="0042", ENV{ID_MAK
 # RAMBO (Lulzbot Mini, Lulzbot TAZ 4, ...)
 SUBSYSTEMS=="usb", ATTRS{idVendor}=="27b1", ATTRS{idProduct}=="0001", ENV{ID_MAKER_TOOL}="1"
 
+# Teensyduino (Imprimante 3D Microdelta Originale, ...)
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="16c0", ATTRS{idProduct}=="0483", ENV{ID_MAKER_TOOL}="1"
 
 # The following rule can be removed once the systemd upstream support will get
 # widely adopted (IMHO it should be safe to remove in 2017+)
