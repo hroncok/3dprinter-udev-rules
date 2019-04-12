@@ -18,6 +18,9 @@ SUBSYSTEMS=="usb", ATTRS{idVendor}=="27b1", ATTRS{idProduct}=="0001", ENV{ID_MAK
 # Teensyduino (Imprimante 3D Microdelta Originale, ...)
 SUBSYSTEMS=="usb", ATTRS{idVendor}=="16c0", ATTRS{idProduct}=="0483", ENV{ID_MAKER_TOOL}="1"
 
+# Lulzbot TAZ Pro in Bootloader mode (for flashing firmware)
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="03eb", ATTRS{idProduct}=="6124", ENV{ID_MAKER_TOOL}="1"
+
 # The following rule can be removed once the systemd upstream support will get
 # widely adopted (IMHO it should be safe to remove in 2017+)
 # https://github.com/systemd/systemd/pull/2844
